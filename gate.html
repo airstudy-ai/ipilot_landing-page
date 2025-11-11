@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="항공종사자 온라인 학습플랫폼 아이파일럿. 20년 축적된 기출 데이터와 실시간 법규 업데이트로 검증된 학습 시스템을 제공합니다.">
+<meta name="keywords" content="아이파일럿, iPilot, 항공교육, 조종사, 관제사, 정비사, 국토부 항공8급, 항공기술훈련원, PPL, CPL, ATPL, 항공종사자, 온라인 학습플랫폼, 항공정비일반, 계기비행증명">
+<meta name="author" content="아이파일럿(iPilot)">
+<!-- Open Graph Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="아이파일럿 - 항공종사자 온라인 학습플랫폼">
+<meta property="og:description" content="20년 축적된 기출 데이터와 실시간 법규 업데이트로 검증된 학습 시스템">
+<meta property="og:url" content="https://ipilot.co.kr">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="아이파일럿 - 항공종사자 온라인 학습플랫폼">
+<meta name="twitter:description" content="전문성 · 신뢰성 · 체계성을 바탕으로 한 항공 교육 플랫폼">
+<title>아이파일럿 - 항공종사자 온라인 학습플랫폼</title>
+<!-- Preconnect for Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<!-- Google Fonts - Noto Sans KR -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+/* =============================================
+* iPilot Gate Page Design System - Color Refinement
+* 원본 구조를 유지하며 색상만 전문적이고 안정감있게 변경
+* =============================================
+*/
+:root {
+    /* == Color Palette (신뢰감 있는 색상으로 재정의) == */
+    --ipilot-bg: #101D35;                /* 주 배경 - 깊은 네이비 */
+    --ipilot-primary: #1A2C51;           /* 카드 배경 & 주요 요소 */
+    --ipilot-secondary: #2C416D;           /* 호버 및 보조 요소 */
+    --ipilot-accent-gold: #E6C56C;           /* 강조색 1 - 고급스러운 골드 */
+    --ipilot-accent-blue: #58A6FF;           /* 강조색 2 - 시각적 포인트 */
+    --ipilot-text-primary: #F0F6FC;           /* 주 텍스트 - 높은 가독성 */
+    --ipilot-text-secondary: #C3D1E3;           /* 보조 텍스트 - 부드러운 회색 */
+    --ipilot-border-color: rgba(138, 161, 199, 0.25); /* 테두리 */
+
+    /* == Typography (원본 유지) == */
+    --ipilot-font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    --ipilot-font-logo: 1.6rem;
+    --ipilot-font-main-title: 1.8rem;
+    --ipilot-font-sub-title: 0.9rem;
+    --ipilot-font-card-title: 0.99rem;
+    --ipilot-font-card-desc: 0.72rem;
+    --ipilot-font-footer: 0.7rem;
+
+    /* == Layout (세로 높이 20% 축소) == */
+    --ipilot-card-padding: 0.9rem; /* 1.125rem -> 0.9rem */
+    --ipilot-border-radius: 12px;
+    --ipilot-grid-gap: 1.2rem; /* 1.5rem -> 1.2rem */
+    --ipilot-transition: all 0.3s ease-in-out;
+}
+
+/* == 글로벌 리셋 및 기본 스타일 == */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ipilot-font-family);
+    line-height: 1.6;
+    color: var(--ipilot-text-primary);
+    background-color: var(--ipilot-bg); /* 단색 배경으로 변경하여 안정감 부여 */
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* == 페이지 래퍼 (원본 유지) == */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 130px 1.5rem 110px;
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: padding-top 0.3s ease;
+}
+
+/* == 헤더 섹션 (원본 구조, 색상 적용) == */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.4rem; /* 3rem -> 2.4rem */
+    animation: fadeInUp 1s ease-out;
+    width: 100%;
+}
+
+.brand-logo {
+    font-size: var(--ipilot-font-logo);
+    font-weight: 700;
+    color: var(--ipilot-text-secondary);
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+    transition: var(--ipilot-transition);
+}
+.brand-logo:hover {
+    color: var(--ipilot-text-primary);
+}
+.brand-logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-title {
+    font-size: var(--ipilot-font-main-title);
+    font-weight: 700;
+    color: var(--ipilot-text-primary);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.sub-title { /* 현재 HTML 구조에는 없지만 스타일 유지 */
+    font-size: var(--ipilot-font-sub-title);
+    font-weight: 400;
+    color: var(--ipilot-text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.brand-values {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ipilot-accent-gold);
+    margin-top: 0.6rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* 텍스트가 잘 보이도록 그림자 강화 */
+}
+
+/* == 메인 콘텐츠 (원본 유지) == */
+.main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* == 카테고리 그룹 (원본 구조, 색상 적용) == */
+.category-group {
+    margin-bottom: 1.6rem; /* 2rem -> 1.6rem */
+}
+.category-group-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ipilot-text-primary);
+    text-align: center;
+    margin-bottom: 1.2rem; /* 1.5rem -> 1.2rem */
+    position: relative;
+    padding-bottom: 0.4rem;
+}
+.category-group-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--ipilot-accent-gold);
+    border-radius: 2px;
+}
+
+/* == 카테고리 그리드 (원본 유지) == */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--ipilot-grid-gap);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* == 카테고리 카드 (원본 구조, 색상 적용) == */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--ipilot-card-padding);
+    padding-top: 3.5rem; /* 아이콘이 가려지는 현상을 막기 위해 상단 여백 확보 */
+    background-color: var(--ipilot-primary); /* 새로운 카드 배경색 */
+    border: 1px solid var(--ipilot-border-color); /* 새로운 테두리 색 */
+    border-radius: var(--ipilot-border-radius);
+    text-decoration: none;
+    color: var(--ipilot-text-primary);
+    transition: var(--ipilot-transition);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 100%;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    transition: left 0.6s ease;
+}
+
+.category-card:hover::before {
+    left: 100%;
+}
+
+.category-card:hover,
+.category-card:focus {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--ipilot-accent-blue); /* 호버 시 테두리 색상 변경 */
+    background-color: var(--ipilot-secondary); /* 호버 시 배경색 변경 */
+}
+
+.category-card:focus-visible {
+    outline: 3px solid var(--ipilot-accent-blue);
+    outline-offset: 4px;
+}
+
+.card-icon {
+    font-size: 1.98rem;
+    color: var(--ipilot-text-primary);
+    margin-bottom: 0.8rem; /* 1rem -> 0.8rem */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: var(--ipilot-transition);
+}
+
+.category-card:hover .card-icon {
+    color: var(--ipilot-accent-gold);
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: var(--ipilot-font-card-title);
+    font-weight: 500;
+    color: var(--ipilot-text-primary);
+    margin-bottom: 0.48rem; /* 0.6rem -> 0.48rem */
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+}
+
+.card-description {
+    font-size: var(--ipilot-font-card-desc);
+    font-weight: 400;
+    color: var(--ipilot-text-secondary);
+    line-height: 1.7;
+    max-width: 280px;
+    margin-bottom: 0.32rem; /* 0.4rem -> 0.32rem */
+}
+
+/* == 미니 배너 시스템 (원본 구조, 색상 적용) == */
+.card-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 280px;
+    max-width: 350px;
+}
+
+.mini-banner {
+    text-decoration: none;
+    text-align: center;
+    background-color: #fff; /* 흰색으로 변경 */
+    color: var(--ipilot-primary); /* 어두운 텍스트로 가독성 확보 */
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-top-left-radius: var(--ipilot-border-radius);
+    border-top-right-radius: var(--ipilot-border-radius);
+    transition: var(--ipilot-transition);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+    animation-name: fadeInUp;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.mini-banner:hover {
+    background-color: var(--ipilot-accent-gold); /* 노란색(골드)으로 변경 */
+    color: var(--ipilot-primary);
+}
+
+#pilot-wrapper .mini-banner { animation-delay: 2.0s; }
+#atc-wrapper .mini-banner { animation-delay: 4.0s; }
+#ame-wrapper .mini-banner { animation-delay: 6.0s; }
+#molit-wrapper .mini-banner { animation-delay: 8.0s; }
+#training-wrapper .mini-banner { animation-delay: 10.0s; }
+#airline-wrapper .mini-banner { animation-delay: 12.0s; }
+
+
+/* == 푸터 (원본 구조, 색상 적용) == */
+.page-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+.footer-logo-link {
+    display: inline-block;
+    max-width: 90px;
+    margin-bottom: 1rem;
+}
+.footer-logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--ipilot-transition);
+}
+.footer-logo-link:hover img {
+    opacity: 0.8;
+}
+.centered-logo {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--ipilot-text-secondary);
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    position: relative;
+    padding-top: 1.5rem;
+}
+.centered-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background-color: var(--ipilot-border-color);
+}
+.centered-logo:hover {
+    color: var(--ipilot-text-primary);
+}
+
+/* == 로그인 상태 표시등 (원본 유지) == */
+.login-status-indicator {
+    position: fixed; bottom: 20px; right: 20px; width: 12px; height: 12px;
+    border-radius: 50%; background-color: #e74c3c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); z-index: 1001; cursor: pointer;
+}
+body.logged-in .login-status-indicator { background-color: #2ecc71; }
+.login-status-tooltip {
+    position: fixed; bottom: 40px; right: 20px; transform: translateX(calc(-50% + 6px));
+    background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 6px 12px;
+    border-radius: 6px; font-size: 13px; white-space: nowrap; z-index: 1002;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    pointer-events: none;
+}
+.login-status-tooltip.visible {
+    opacity: 1; visibility: visible; transform: translateX(calc(-50% + 6px)) translateY(-5px);
+}
+
+/* == 애니메이션 (원본 유지) == */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+/* == 고정 상단 바 (원본 구조, 색상 적용) == */
+.fixed-top-bar {
+    position: fixed; left: 0; top: 0; width: 100%;
+    background-color: rgba(16, 29, 53, 0.85); /* 배경색 투명도 조절 */
+    backdrop-filter: blur(8px);
+    z-index: 1000; display: flex; justify-content: center; align-items: center;
+    padding: 0.8rem; height: 55px;
+    border-bottom: 1px solid var(--ipilot-border-color);
+}
+.fixed-top-bar .brand-logo {
+    margin-bottom: 0; font-size: 1.1rem; color: var(--ipilot-text-primary);
+}
+
+/* == 상단 공지 배너 (원본 구조, 색상 적용) == */
+.update-notice-banner {
+    display: flex; justify-content: center; align-items: center;
+    position: fixed; top: 55px; left: 0; width: 100%;
+    background: linear-gradient(90deg, var(--ipilot-secondary), var(--ipilot-primary));
+    color: var(--ipilot-text-primary);
+    border-bottom: 3px solid var(--ipilot-accent-gold);
+    padding: 0.8rem 3rem; font-size: 0.9rem; font-weight: 500; z-index: 999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: top 0.3s ease, opacity 0.3s ease;
+    position: relative;
+    cursor: pointer; /* 클릭 가능함을 나타내는 커서 추가 */
+}
+.update-notice-banner.hidden { top: -150px; opacity: 0; }
+.notice-content { display: flex; align-items: center; gap: 1rem; text-align: left; }
+.notice-icon { font-size: 1.8rem; color: var(--ipilot-accent-gold); }
+.update-notice-banner p { margin: 0; line-height: 1.4; }
+.update-notice-banner .notice-details { font-size: 0.85rem; opacity: 0.8; color: var(--ipilot-text-secondary); }
+.close-notice-btn {
+    background: none; border: none; color: var(--ipilot-text-primary);
+    font-size: 1.6rem; font-weight: bold; cursor: pointer;
+    padding: 0 0.5rem; line-height: 1; opacity: 0.7; transition: opacity 0.2s;
+    position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+}
+.close-notice-btn:hover { opacity: 1; }
+
+/* == 고정 하단 바 (원본 구조, 색상 적용) == */
+.fixed-bottom-wrapper {
+    position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998;
+}
+.fixed-promo-banner {
+    background-color: var(--ipilot-primary);
+    border-top: 1px solid var(--ipilot-accent-gold);
+    animation: fadeIn 2s ease-out 15s both;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+.fixed-promo-banner a {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0.7rem 1rem; text-decoration: none; color: var(--ipilot-text-secondary);
+    font-weight: 500; font-size: 0.9rem; transition: var(--ipilot-transition);
+    min-height: 44px;
+}
+.fixed-promo-banner a:hover {
+    color: var(--ipilot-text-primary); background-color: var(--ipilot-secondary);
+}
+.fixed-bottom-nav {
+    display: flex; justify-content: center; align-items: center;
+    gap: 1.5rem; padding: 1rem; background-color: var(--ipilot-bg);
+}
+.fixed-bottom-nav .utility-icon-link {
+    color: var(--ipilot-text-secondary);
+    text-decoration: none; font-size: 1.2rem; transition: var(--ipilot-transition);
+}
+.fixed-bottom-nav .utility-icon-link:hover {
+    color: var(--ipilot-accent-gold); transform: scale(1.1);
+}
+
+/* == 로그인 상태 아이콘 표시 (원본 유지) == */
+.fixed-bottom-nav #my-course-icon,
+.fixed-bottom-nav #logout-icon { display: none; }
+body.logged-in .fixed-bottom-nav #login-icon,
+body.logged-in .fixed-bottom-nav #register-icon { display: none; }
+body.logged-in .fixed-bottom-nav #my-course-icon,
+body.logged-in .fixed-bottom-nav #logout-icon { display: inline-block; }
+
+/* == 반응형 디자인 (원본 유지) == */
+@media (min-width: 1025px) {
+    :root {
+        --ipilot-font-main-title: 2.5rem;
+        --ipilot-font-card-title: 1.2rem;
+        --ipilot-font-card-desc: 0.85rem;
+        --ipilot-font-sub-title: 1.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding-left: 0.75rem; padding-right: 0.75rem;
+    }
+    .update-notice-banner {
+        padding: 0.8rem 1rem;
+    }
+    .notice-content {
+        gap: 0.75rem; margin-right: 1.5rem;
+    }
+    .notice-icon { font-size: 1.5rem; }
+    .card-wrapper { flex-basis: 100%; min-width: initial; }
+    .category-card { padding-top: 5rem; padding-bottom: 1rem; }
+    .category-group-title { font-size: 1.2rem; }
+    .main-title { font-size: 1.6rem; }
+    .fixed-promo-banner { animation: fadeIn 2s ease-out 8s both; }
+}
+
+/* == 접근성 개선 (원본 유지) == */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+@media (prefers-contrast: high) {
+    .category-card { border-width: 2px; border-color: var(--ipilot-text-primary); }
+    .category-card:hover, .category-card:focus { border-color: var(--ipilot-accent-gold); border-width: 3px; }
+}
+</style>
+</head>
+
+<body class="home page-template-default page page-id-10 wp-embed-responsive logged-in admin-bar no-customize-support">
+
+<!-- [신규] 상단 공지 배너 -->
+<!-- ===== #01 수정된 부분 시작 ===== -->
+<!-- 배너의 HTML 구조를 원본과 동일하게 복원 (a태그 제거) -->
+<div class="update-notice-banner" id="update-notice">
+    <div class="notice-content">
+        <i class="fas fa-bullhorn notice-icon"></i> <!-- 아이콘은 새것으로 유지 -->
+        <div>
+            <p><strong>2025년도 하반기 국토교통부 항공8급 공무원</strong></p>
+            <p class="notice-details"><strong>경력경쟁채용시험 공고</strong> (배너 클릭 시 이동)</p>
+        </div>
+    </div>
+    <button class="close-notice-btn" id="close-notice" title="닫기">&times;</button>
+</div>
+<!-- ===== #01 수정된 부분 끝 ===== -->
+
+<!-- 고정 상단 바 -->
+<div class="fixed-top-bar">
+    <h1 class="brand-logo"><a href="https://ipilot.co.kr/">아이파일럿</a></h1>
+</div>
+
+<div class="page-wrapper">
+<!-- Header Section (본문 헤더) -->
+<header class="page-header">
+    <h2 class="main-title">항공종사자 온라인 학습플랫폼</h2>
+    <div class="brand-values">전문성 · 신뢰성 · 체계성</div>
+</header>
+
+<!-- Main Content -->
+<main class="main-content">
+<!-- Section 1: 자격증 과정 -->
+<section class="category-group">
+    <h2 class="category-group-title">자격증 과정</h2>
+    <nav class="category-grid" aria-label="항공종사자 자격증 과정">
+
+    <!-- 조종사 (PILOT) with Banner -->
+    <div class="card-wrapper" id="pilot-wrapper">
+        <a href="#" class="mini-banner" aria-label="✈️ 25.11월 : 계기비행증명 오픈 예정">
+        ✈️ 25.11월 : 계기비행증명 오픈 예정
+        </a>
+        <a href="https://ipilot.co.kr/pilot/" class="category-card"
+        aria-label="조종사 과정 - 운송용·사업용·자가용·경량항공기 조종사, Type Rating(A320/B737)">
+        <i class="fas fa-plane-up card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">조종사 (PILOT)</h3>
+        <p class="card-description">
+        운송용, 사업용, 자가용, 경량항공기<br>
+        Type Rating(A320/B737)
+        </p>
+        </a>
+    </div>
+
+    <!-- 관제사 (ATC) with Banner -->
+    <div class="card-wrapper" id="atc-wrapper">
+        <a href="#" class="mini-banner" aria-label="🧩 25.12월 : 전체과정 완성">
+        🧩 25.12월 : 전체과정 완성
+        </a>
+        <a href="https://ipilot.co.kr/atc/" class="category-card"
+        aria-label="관제사 과정 - 항공교통관제사 필기시험 대비">
+        <i class="fas fa-tower-broadcast card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">관제사 (ATC)</h3>
+        <p class="card-description">
+        항공법규 · 항공기상<br>
+        항공교통정보통신업무
+        </p>
+        </a>
+    </div>
+
+    <!-- 정비사 (AME) with Banner -->
+    <div class="card-wrapper" id="ame-wrapper">
+        <a href="#" class="mini-banner" aria-label="🏛️ 항공법규 과정 오픈 !!">
+        🏛️ 항공법규 과정 오픈 !!
+        </a>
+        <a href="https://ipilot.co.kr/ame/" class="category-card"
+        aria-label="정비사 과정 - 항공정비사 필기시험">
+        <i class="fas fa-wrench card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">정비사 (AME)</h3>
+        <p class="card-description">
+        항공정비사 필기시험
+        </p>
+        </a>
+    </div>
+    </nav>
+</section>
+<!-- Section 2: 취업/기관 과정 -->
+<section class="category-group">
+    <h2 class="category-group-title">취업/기관 과정</h2>
+    <nav class="category-grid" aria-label="취업 및 기관별 맞춤 과정">
+    <!-- 국토부 항공8급 with Banner -->
+    <div class="card-wrapper" id="molit-wrapper">
+        <a href="https://ipilot.co.kr/courses/ame-molit/" class="mini-banner" aria-label="🚀 항공정비일반 | 국토부 필수 과정 오픈 !">
+        🚀 항공정비일반 | 국토부 필수 과정 오픈 !
+        </a>
+        <a href="https://ipilot.co.kr/molit/" class="category-card" aria-label="국토부 항공8급 - 조종/정비/관제 분야">
+        <i class="fas fa-building-user card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">국토부 항공8급</h3>
+        <p class="card-description">
+        조종/정비/관제 분야
+        </p>
+        </a>
+    </div>
+
+    <!-- 항공기술훈련원 with Banner -->
+    <div class="card-wrapper" id="training-wrapper">
+        <a href="https://ipilot.co.kr/courses/atc_center_law/lessons/%EC%A0%9C12%EA%B8%B0-%EA%B8%B0%EC%B6%9C%EC%9C%A0%ED%98%95-%EB%B0%8F-%EC%A0%9C13%EA%B8%B0-%EC%9D%91%EC%9A%A9-%EC%8B%A4%EC%A0%84%EB%AA%A8%EC%9D%B4%EA%B3%A0%EC%82%AC/" class="mini-banner" aria-label="🎯 제12기 기출 모의고사 및 제13기 모의고사 바로가기">
+        🎯 제12기 기출 모의고사 및 제13기 모의고사 바로가기
+        </a>
+        <a href="https://ipilot.co.kr/airport_atc/" class="category-card"
+        aria-label="항공기술훈련원 - 항공교통관제사 훈련과정">
+        <i class="fas fa-graduation-cap card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">항공기술훈련원</h3>
+        <p class="card-description">
+        항공교통관제사 훈련과정
+        </p>
+        </a>
+    </div>
+    <!-- 항공사 입사 (추가된 항목) with Banner -->
+    <div class="card-wrapper" id="airline-wrapper">
+        <a href="#" class="mini-banner" aria-label="⏳ Coming Soon">
+        ⏳ Coming Soon
+        </a>
+        <a href="#" class="category-card"
+        aria-label="항공사 입사 - 필기시험 및 구술 평가">
+        <i class="fas fa-plane-departure card-icon" aria-hidden="true"></i>
+        <h3 class="card-title">항공사 입사</h3>
+        <p class="card-description">
+        필기시험 및 구술평가
+        </p>
+        </a>
+    </div>
+    </nav>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="page-footer">
+<!-- 아이파일럿 로고 -->
+<a href="https://ipilot.co.kr/" class="footer-logo-link">
+    <img src="https://ipilot.co.kr/wp-content/uploads/2020/05/iPilot-Logo_Final_White-Letter_Transparency_200315-01.png" alt="아이파일럿 로고">
+</a>
+
+<!-- 새로운 로고 영역 -->
+<div class="centered-logo">
+    <p>항공지식개발원</p>
+</div>
+</footer>
+
+</div>
+
+<!-- 고정 하단 바 전체 래퍼 -->
+<div class="fixed-bottom-wrapper">
+<!-- 고정 하단 프로모션 배너 (내용 및 링크 수정) -->
+<div class="fixed-promo-banner">
+    <a href="https://ipilot.co.kr/package/" aria-label="All-in-One 패키지 특별 할인 이벤트 자세히 보기">
+    🎯 스마트한 선택! All-in-One 패키지 특별 할인 🚀
+    </a>
+</div>
+
+<!-- 고정 하단 유틸리티 아이콘 메뉴 -->
+<div class="fixed-bottom-nav">
+    <!-- 로그인 상태일 때만 보임 -->
+    <a href="https://ipilot.co.kr/my-course/" class="utility-icon-link" title="수강중인 강좌" id="my-course-icon">
+    <i class="fas fa-book-reader"></i>
+    </a>
+    <a href="https://ipilot.co.kr/wp-login.php?action=logout" class="utility-icon-link" title="로그아웃" id="logout-icon">
+    <i class="fas fa-sign-out-alt"></i>
+    </a>
+    <!-- 로그아웃 상태일 때만 보임 -->
+    <a href="https://ipilot.co.kr/login/" class="utility-icon-link" title="로그인" id="login-icon">
+    <i class="fas fa-sign-in-alt"></i>
+    </a>
+    <a href="https://ipilot.co.kr/Register/" class="utility-icon-link" title="회원가입" id="register-icon">
+    <i class="fas fa-user-plus"></i>
+    </a>
+    <!-- 항상 보임 -->
+    <!-- ===== #02 추가된 부분 시작 ===== -->
+    <a href="https://ipilot.co.kr/faq/" class="utility-icon-link" title="자주묻는질문(FAQ)">
+    <i class="fas fa-info-circle"></i>
+    </a>
+    <!-- ===== #02 추가된 부분 끝 ===== -->
+    <a href="https://ipilot.co.kr/home" class="utility-icon-link" title="전체 사이트 보기">
+    <i class="fas fa-sitemap"></i>
+    </a>
+    <a href="https://pf.kakao.com/_MWdjT/chat" target="_blank" class="utility-icon-link" title="상담하기">
+    <i class="fas fa-comment-dots"></i>
+    </a>
+</div>
+</div>
+
+<!-- 로그인 상태 표시등 -->
+<div class="login-status-indicator" id="login-indicator"></div>
+<!-- [추가] 로그인 상태 툴팁 메시지 -->
+<div class="login-status-tooltip" id="login-tooltip"></div>
+
+
+<!-- JavaScript for Enhanced User Experience -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🛩️ 아이파일럿 Gate 페이지가 성공적으로 로드되었습니다! (Color Refined)');
+
+    const noticeBanner = document.getElementById('update-notice');
+    const closeNoticeBtn = document.getElementById('close-notice');
+    const fixedTopBar = document.querySelector('.fixed-top-bar');
+    const pageWrapper = document.querySelector('.page-wrapper');
+    let noticeCloseTimer; 
+
+    function adjustPagePadding() {
+        if (!fixedTopBar || !pageWrapper) return;
+        let topOffset = fixedTopBar.offsetHeight;
+        if (noticeBanner && !noticeBanner.classList.contains('hidden')) {
+            topOffset += noticeBanner.offsetHeight;
+        }
+        pageWrapper.style.paddingTop = `${topOffset + 1}px`;
+    }
+
+    if (noticeBanner && closeNoticeBtn) {
+        const closeBanner = () => {
+            if (noticeBanner && !noticeBanner.classList.contains('hidden')) {
+                noticeBanner.classList.add('hidden');
+                adjustPagePadding(); 
+            }
+        };
+
+        closeNoticeBtn.addEventListener('click', function() {
+            clearTimeout(noticeCloseTimer);
+            closeBanner();
+        });
+
+        /* ===== [수정] 배너 클릭 시 링크 이동 (닫기 버튼 제외) ===== */
+        noticeBanner.addEventListener('click', function(e) {
+            // 클릭된 대상이 닫기 버튼이거나 닫기 버튼의 자식 요소인지 확인
+            if (e.target === closeNoticeBtn || closeNoticeBtn.contains(e.target)) {
+                // 닫기 버튼 클릭 로직은 closeNoticeBtn.addEventListener에서 이미 처리됨
+                return;
+            }
+            
+            // 닫기 버튼이 아닌 배너 영역을 클릭하면 링크로 이동
+            window.open('https://ipilot.co.kr/recruitment/molit-8/2025-h2/', '_blank');
+        });
+        /* ======================================================= */
+        
+        let closeDelay = window.innerWidth <= 768 ? 8000 : 16000;
+
+        noticeCloseTimer = setTimeout(() => {
+            closeBanner();
+            console.log(`${closeDelay / 1000}초가 경과하여 공지 배너를 자동으로 닫습니다.`);
+        }, closeDelay);
+    }
+
+    setTimeout(() => {
+        adjustPagePadding();
+        window.addEventListener('resize', adjustPagePadding);
+    }, 100);
+
+
+    const loginIndicator = document.getElementById('login-indicator');
+    const loginTooltip = document.getElementById('login-tooltip');
+    let tooltipTimeout;
+
+    if (loginIndicator && loginTooltip) {
+        const statusMessage = document.body.classList.contains('logged-in')
+        ? '로그인 상태'
+        : '로그아웃 상태';
+        loginTooltip.textContent = statusMessage;
+
+        loginIndicator.addEventListener('mouseover', () => {
+            clearTimeout(tooltipTimeout);
+            loginTooltip.classList.add('visible');
+        });
+
+        loginIndicator.addEventListener('mouseout', () => {
+            loginTooltip.classList.remove('visible');
+        });
+
+        loginIndicator.addEventListener('click', () => {
+            clearTimeout(tooltipTimeout);
+            loginTooltip.classList.add('visible');
+            tooltipTimeout = setTimeout(() => {
+                loginTooltip.classList.remove('visible');
+            }, 2000);
+        });
+    }
+
+    const brandValues = document.querySelector('.brand-values');
+    if (brandValues) {
+        setTimeout(() => {
+            brandValues.style.color = 'var(--ipilot-text-primary)';
+            brandValues.style.textShadow = '0 0 8px rgba(255, 255, 255, 0.5)';
+            console.log('17초가 경과하여 브랜드 가치 텍스트 색상을 변경합니다.');
+        }, 17000);
+    }
+
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach((card, index) => {
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
+        card.addEventListener('mouseenter', function() {
+            this.style.setProperty('--hover-scale', '1');
+        });
+        card.addEventListener('focus', function() {
+            console.log(`${this.querySelector('.card-title').textContent} 카테고리에 포커스됨`);
+        });
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-navigation');
+        }
+    });
+    document.addEventListener('mousedown', function() {
+        document.body.classList.remove('keyboard-navigation');
+    });
+
+    if ('performance' in window) {
+        window.addEventListener('load', function() {
+            const loadTime = performance.now();
+            console.log(`⚡ 페이지 로딩 완료: ${Math.round(loadTime)}ms`);
+        });
+    }
+});
+</script>
+</body>
+</html>
